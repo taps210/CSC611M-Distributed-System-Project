@@ -79,7 +79,7 @@ def detect_license_plate(image_path):
 
 def main():
     credentials = pika.PlainCredentials('rabbituser','rabbit1234')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('<ip addressrabbit broker>',5672,'/',credentials))
+    connection = pika.BlockingConnection(pika.ConnectionParameters('10.2.12.62',5672,'/',credentials))
     channel = connection.channel()
     
     channel.queue_declare(queue='task_queue', durable=True)

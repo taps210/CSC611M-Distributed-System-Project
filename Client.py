@@ -51,7 +51,7 @@ def main():
     
     # RabbitMQ connection
     credentials = pika.PlainCredentials('rabbituser','rabbit1234')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('<ip address rabbit broker>',5672,'/',credentials))
+    connection = pika.BlockingConnection(pika.ConnectionParameters('10.2.12.62',5672,'/',credentials))
     channel = connection.channel()
     
     # Declare queues
