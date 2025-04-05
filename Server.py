@@ -8,9 +8,6 @@ import os
 
 def detect_license_plate(image_path):
     try:
-        # 0. Set Tesseract path
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
         # 1. Image Preprocessing
         img = cv2.imread(image_path)
         if img is None:
@@ -70,7 +67,9 @@ def detect_license_plate(image_path):
         config = ('-l eng --oem 1 --psm 8') # Adjust as needed.  PSM 8 treats as a single word.
         plate_number = pytesseract.image_to_string(cropped_image, config=config)
         plate_number = ''.join(filter(str.isalnum, plate_number)).strip()
-
+        
+        print(f"Processed image: {image_path}")
+        
         return os.path.basename(image_path), plate_number
 
     except Exception as e:

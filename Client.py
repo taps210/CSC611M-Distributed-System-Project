@@ -41,12 +41,12 @@ class ResultCollector:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('image_folder', help='Path to image folder')
     parser.add_argument('nodes', type=int, help='Number of worker nodes')
     args = parser.parse_args()
-
+    
+    image_folder = "./images"
     # Get image files
-    image_files = [os.path.join(args.image_folder, f) for f in os.listdir(args.image_folder) 
+    image_files = [os.path.join(image_folder, f) for f in os.listdir(image_folder) 
                    if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))]
     
     # RabbitMQ connection
