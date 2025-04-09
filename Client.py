@@ -40,9 +40,6 @@ class ResultCollector:
             exit(0)
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('nodes', type=int, help='Number of worker nodes')
-    args = parser.parse_args()
     
     image_folder = "./images"
     # Get image files
